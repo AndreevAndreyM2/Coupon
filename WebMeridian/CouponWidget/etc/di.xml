@@ -1,0 +1,22 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../lib/internal/Magento/Framework/ObjectManager/etc/config.xsd">
+
+    <preference for="WebMeridian\CouponWidget\Api\Data\CouponInterface"
+                type="WebMeridian\CouponWidget\Model\CouponEmail"/>
+
+    <preference for="WebMeridian\CouponWidget\Api\Repository\CouponRepositoryInterface"
+                type="WebMeridian\CouponWidget\Repository\CouponRepository"/>
+
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="couponwidget_coupon_listing_data_source" xsi:type="string">WebMeridian\CouponWidget\Model\ResourceModel\CouponEmail\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="WebMeridian\CouponWidget\Model\ResourceModel\CouponEmail\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">coupon_email</argument>
+            <argument name="resourceModel" xsi:type="string">WebMeridian\CouponWidget\Model\ResourceModel\CouponEmail</argument>
+        </arguments>
+    </virtualType>
+</config>

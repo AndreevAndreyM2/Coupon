@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:helloworld:Magento_Widget:etc/widget.xsd">
+    <widget class="WebMeridian\CouponWidget\Block\Widget\Coupon" id="webmeridian_widget_coupon">
+        <label>Coupon</label>
+        <description>Coupon</description>
+        <parameters>
+            <parameter name="description" sort_order="10" visible="true" xsi:type="text">
+                <label>Description</label>
+            </parameter>
+            <parameter name="discount" sort_order="10" visible="true" xsi:type="text">
+                <label>Coupon Discount Percentage</label>
+            </parameter>
+            <parameter name="valid" sort_order="10" visible="true" xsi:type="text">
+                <label>How many days it is valid</label>
+            </parameter>
+        </parameters>
+    </widget>
+</widgets>

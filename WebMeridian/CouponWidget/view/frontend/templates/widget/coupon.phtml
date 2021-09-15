@@ -1,0 +1,50 @@
+<?php
+/** @var Coupon $block */
+
+use WebMeridian\CouponWidget\Block\Widget\Coupon;
+
+$description = $block->getData('description');
+$discount = $block->getData('discount');
+$valid = $block->getData('valid');
+
+$widgetData = __("$description Get $discount discount for your first order! Coupon valid for $valid days");
+?>
+<div class="js-wrapper-widget-coupon" data-bind="scope: 'couponwidget'" style="display: none;">
+    <div class="content-wrapper">
+        <!-- ko template: getTemplate() --><!-- /ko -->
+        <div class="minicart-wrapper">
+            <div data-bind="click: close" class="js-close-widget-coupon action close"></div>
+        </div>
+        <!-- ko if: couponwidget().isNotLoggedIn && couponwidget().checkCoupon -->
+        <div class="email-sender" style="display: none;" data-bind="visible:couponwidget().isNotLoggedIn && couponwidget().checkCoupon">
+            <form name="form_height" method="POST" id="form_height" >
+                <input type="email" name="email" style="width: 200px" class="form-control input-md" required="true" data-validate="{required:true, 'validate-email':true}">
+                <input type="submit" id="calculateTotalSubmit" name="calculate-total-submit"  value="Submit">
+            </form>
+        </div>
+        <!-- /ko -->
+    </div>
+
+    <div class="msg-wrapper"></div>
+</div>
+
+<script type="text/x-magento-init">
+{
+    "*": {
+        "Magento_Ui/js/core/app": {
+            "components": {
+                "couponwidget": {
+                    "component": "WebMeridian_CouponWidget/js/couponwidget",
+                    "config": {
+                        "template": "WebMeridian_CouponWidget/couponwidget",
+                        "widget": "<?= $widgetData ?>",
+                        "urlController": "<?php echo $this->getUrl().'email/index/emailvalidation'?>"
+                   }
+                }
+            }
+        }
+    }
+}
+</script>
+
+

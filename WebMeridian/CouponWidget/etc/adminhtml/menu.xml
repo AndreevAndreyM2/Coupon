@@ -1,0 +1,6 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../Magento/Backend/etc/menu.xsd">
+    <menu>
+        <add id="WebMeridian_CouponWidget::webmeridian" title="WebMeridian" module="WebMeridian_CouponWidget" sortOrder="50" resource="WebMeridian_CouponWidget::webmeridian"/>
+        <add id="WebMeridian_CouponWidget::couponmanager" title="Coupon Manager" module="WebMeridian_CouponWidget" sortOrder="20" parent="WebMeridian_CouponWidget::webmeridian" action="couponwidget/coupon/index" resource="WebMeridian_CouponWidget::couponmanager"/>
+    </menu>
+</config>
